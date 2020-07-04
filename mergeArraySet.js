@@ -15,4 +15,4 @@ function mergeArraySet(destArr, sourceArr) {
         return destArr;
     }
 
-document.write(mergeArraySet(['JIM','KELLY','ROBERT'],[7,3,4]))
+gs.info(mergeArraySet(['JIM','KELLY','ROBERT'],[7,3,4]))
