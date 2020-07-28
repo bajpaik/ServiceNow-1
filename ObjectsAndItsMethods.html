@@ -1,0 +1,8 @@
+<!-- NAS - Not Available in Scoped -->
+ <!-- AS - Available in scoped -->
+ 
+Description : Flush the cache and then turn cache flushing back on for this session
+Availability: NAS
+GlideCacheManager.flush();  
+GlideSession().get().setCacheFlush(true);
+GlideSession().get().setWorkflow(true);
