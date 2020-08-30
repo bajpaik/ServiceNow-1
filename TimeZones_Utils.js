@@ -42,3 +42,29 @@ gs.info(sd.getDisplayValue().toString())
 		var hour = gtime2.getByFormat('HH');
 		return (months[gdt.getMonthUTC() - 1] + " "+ gdt.getDayOfMonthUTC() + ", " + gdt.getYearUTC() + ", " + gtime2.getByFormat('hh:mm') +" " +(hour > 12 ? 'PM' : 'AM') + " UTC");
 	},
+		
+		
+ /******************************************************************************
+         VIA CLIENT SCRIPT...
+	**************************************************************************/
+function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+g_form.setMandatory('check_in_date', true);
+   g_form.setMandatory('entry_time', true);
+if(!oldValue){
+		g_form.showFieldMsg('entry_time', 'Please enter time in \'HH:MM\'');
+	}
+     return;
+ }
+
+ if (newValue) {
+     var entry_time = g_form.getValue('entry_time');
+     var format =/^([0-2][0-3]{0,1})(\:[0-5][0-9]{0,1})?%?$/gim;
+     if (!entry_time.match(format)) {
+         alert("Invalid format! Please enter time in 'HH:MM', e.g. 01:25 ");
+ g_form.setValue('entry_time','');
+     }
+ }
+	
+   
+}
